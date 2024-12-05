@@ -5,7 +5,7 @@ public struct Day1Input {
         case url
     }
     
-    public static func getList() async throws -> [(Int, Int)] {
+    public static func getList() async throws -> ([Int], [Int]) {
         guard let url = Bundle.module.url(forResource: "Day1", withExtension: "txt", subdirectory: "Resources") else {
             throw ListError.url
         }
@@ -32,6 +32,6 @@ public struct Day1Input {
         listA.sort()
         listB.sort()
         
-        return zip(listA, listB).map { ($0.0, $0.1) }
+        return (listA, listB)
     }
 }
